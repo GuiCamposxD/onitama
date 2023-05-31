@@ -2,6 +2,10 @@
  * Classe que contém informações das cartas
  */
 public class Card {
+    private final String nome;
+    private final Color cor;
+    private Position[] posicoes;
+
     /**
      * Construtor que define os principais atributos de uma cara
      * @param name Nome da carta
@@ -9,7 +13,9 @@ public class Card {
      * @param positions Todas as posições relativas de movimento
      */
     public Card(String name, Color color, Position[] positions) {
-
+        this.nome = name;
+        this.cor = color;
+        this.posicoes = positions;
     }
 
     /**
@@ -17,7 +23,7 @@ public class Card {
      * @return String que contém o nome da carta
      */
     public String getName() {
-        return null;
+        return this.nome;
     }
 
     /**
@@ -25,7 +31,7 @@ public class Card {
      * @return Enum Color que contém a cor da carta
      */
     public Color getColor() {
-        return null;
+        return this.cor;
     }
 
     /**
@@ -34,7 +40,7 @@ public class Card {
      * @return Um array de Position contendo todas as possíveis posições de movimento em relação ao ponto de origem
      */
     public Position[] getPositions() {
-        return null;
+        return this.posicoes;
     }
 
     /**
@@ -43,4 +49,9 @@ public class Card {
      */
     public static Card[] createCards() {
         return null;
-    }}
+    }
+
+    public void setPositions(Position[] positions) {
+        this.positions = positions;
+    }
+}

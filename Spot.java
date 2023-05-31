@@ -2,6 +2,9 @@
  * Classe contendo ações e informações sobre cada espaço (quadrado) no tabuleiro
  */
 public class Spot {
+    private Piece peca;
+    private Position posicao;
+    private Color cor;
     /**
      * Construtor para espaços com peça e com cor
      * @param piece Peça que inicia nesse espaço do tabuleiro
@@ -9,7 +12,9 @@ public class Spot {
      * @param color Cor do espaço no tabuleiro (Templo)
      */
     public Spot(Piece piece, Position pos, Color color) {
-
+        this.peca = piece;
+        this.posicao = pos;
+        this.cor = color;
     }
 
     /**
@@ -18,7 +23,8 @@ public class Spot {
      * @param pos Posição do espaço no tabuleiro
      */
     public Spot(Piece piece, Position pos) {
-
+        this.peca = piece;
+        this.posicao = pos;
     }
 
     /**
@@ -26,7 +32,7 @@ public class Spot {
      * @param pos Posição do espaço no tabuleiro
      */
     public Spot(Position pos) {
-
+        this.posicao = pos;
     }
 
     /**
