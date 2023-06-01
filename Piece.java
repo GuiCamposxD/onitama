@@ -3,7 +3,17 @@
  */
 public class Piece {
     private final Color color;
+    private boolean isAlive;
     private final boolean isMaster;
+
+    public void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+
+    public boolean getIsAlive() {
+        return this.isAlive;
+    }
+
     /**
      * Construtor que define a cor e o tipo da peça
      * @param color Cor da peça
@@ -11,6 +21,7 @@ public class Piece {
      */
     public Piece(Color color, boolean isMaster) {
         this.color = color;
+        this.setIsAlive(true);
         this.isMaster = isMaster;
     }
 
@@ -35,6 +46,6 @@ public class Piece {
      * @return Booleano true para caso esteja em jogo e false caso contrário
      */
     public boolean isAlive() {
-        return false;
+        return this.getIsAlive();
     }
 }
