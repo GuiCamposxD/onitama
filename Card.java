@@ -50,8 +50,4 @@ public class Card {
     public static Card[] createCards() {
         return null;
     }
-
-    public void setPositions(Position[] positions) {
-        this.positions = positions;
-    }
 }

@@ -2,9 +2,9 @@
  * Classe que contém informações e ações básicas relacionadas aos jogadores
  */
 public class Player {
-    private String nome;
-    private Color corDasPecas;
-    private Card[] cartas;
+    private String name;
+    private Color piecesColor;
+    private Card[] cards;
 
     /**
      * Construtor que define informações básicas do jogador
@@ -13,9 +13,9 @@ public class Player {
      * @param cards Cartas na mão do jogador
      */
     public Player(String name, Color pieceColor, Card[] cards) {
-        this.setNome(name);
-        this.setCorDasPecas(pieceColor);
-        this.setCartas(cards);
+        this.setName(name);
+        this.setPiecesColor(pieceColor);
+        this.setCards(cards);
     }
 
     /**
@@ -26,11 +26,11 @@ public class Player {
      * @param card2 A segunda carta na mão do jogador
      */
     public Player(String name, Color pieceColor, Card card1, Card card2) {
-        this.cartas = new Card[2];
-        this.nome = name;
-        this. corDasPecas = pieceColor;
-        this.cartas[0] = card1;
-        this.cartas[1] = card2;
+        this.cards = new Card[2];
+        this.setName(name);
+        this.setPiecesColor(pieceColor);
+        this.cards[0] = card1;
+        this.cards[1] = card2;
     }
 
     /**
@@ -38,7 +38,7 @@ public class Player {
      * @return String com o nome do jogador(a)
      */
     public String getName() {
-        return this.nome;
+        return this.name;
     }
 
     /**
@@ -46,7 +46,7 @@ public class Player {
      * @return Enum Color com a cor das peças do jogador
      */
     public Color getPieceColor() {
-        return this.corDasPecas;
+        return this.piecesColor;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Player {
      * @return Booleano true para caso seja um mestre e false caso contrário
      */
     public Card[] getCards() {
-        return this.cartas;
+        return this.cards;
     }
 
     /**
@@ -64,18 +64,25 @@ public class Player {
      * @exception InvalidCardException Caso a carta não esteja na mão do jogador e/ou na mesa
      */
     protected void swapCard(Card oldCard, Card newCard) throws InvalidCardException {
+        for (int i = 0; i < getCards().length; i++) {
+            if (this.getCards()[i].getName().equals(oldCard.getName())) {
+                this.getCards()[i] = newCard;
+                return;
+            }
+        }
 
+        throw new InvalidCardException("Não foi possível efetuar a troca, pois a carta não está na mão do jogador.");
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCorDasPecas(Color corDasPecas) {
-        this.corDasPecas = corDasPecas;
+    public void setPiecesColor(Color piecesColor) {
+        this.piecesColor = piecesColor;
     }
 
-    public void setCartas(Card[] cartas) {
-        this.cartas = cartas;
+    public void setCards(Card[] cards) {
+        this.cards = cards;
     }
 }
